@@ -1,16 +1,11 @@
 "use client";
-
-import { ReactNode, useEffect } from "react";
+import { ReactNode } from "react";
 import "maplibre-gl/dist/maplibre-gl.css";
-import useMaps from "@/hooks/useMap";
+import { useMapsContext } from "@/context/MapsContext";
 import { Spinner } from "./ui/spinner";
 
-const Mapa = ({ children }: { children: ReactNode }) => {
-  const { refMap, setMap, isLoading } = useMaps();
-
-  useEffect(() => {
-    setMap();
-  }, [setMap]);
+export default function Mapa({ children }: { children: ReactNode }) {
+  const { refMap, isLoading } = useMapsContext();
 
   if (isLoading) {
     return (
@@ -26,6 +21,4 @@ const Mapa = ({ children }: { children: ReactNode }) => {
       {children}
     </main>
   );
-};
-
-export default Mapa;
+}

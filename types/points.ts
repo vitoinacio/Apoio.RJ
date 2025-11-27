@@ -1,7 +1,13 @@
 export type Point = {
   id: string;
   nome: string;
-  categoria: "seguranca" | "educacao" | "saude" | "assistencia" | "internet" | string;
+  categoria:
+    | "seguranca"
+    | "educacao"
+    | "saude"
+    | "assistencia"
+    | "internet"
+    | string;
   endereco: string;
   bairro: string;
   lat: number;
